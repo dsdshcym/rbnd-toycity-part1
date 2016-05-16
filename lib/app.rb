@@ -3,7 +3,13 @@ path = File.join(File.dirname(__FILE__), '../data/products.json')
 file = File.read(path)
 products_hash = JSON.parse(file)
 
+require 'date'
+
 # Print today's date
+def puts_todays_date
+  puts "Today's Date: #{Date.today}"
+end
+puts_todays_date
 
 puts "                     _            _       "
 puts "                    | |          | |      "
