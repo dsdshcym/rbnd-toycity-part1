@@ -7,6 +7,8 @@ require 'date'
 
 # Print today's date
 def puts_todays_date
+  # The date format is different due to the system region settings
+  # Mine is yyyy-mm-dd instead of mm/dd/yyyy in the instruction
   puts "Today's Date: #{Date.today}"
 end
 puts_todays_date
@@ -36,6 +38,7 @@ end
 brands = Hash.new { |h, k| h[k] = Array.new }
 
 products_hash["items"].each_with_index do |toy, i|
+  # How to deal with dividers more elegently?
   puts_divider if i > 0
   puts
   puts toy["title"]
@@ -44,6 +47,11 @@ products_hash["items"].each_with_index do |toy, i|
   brands[toy["brand"]] << toy
 
   retail_price = toy["full-price"].to_f
+  # I wanted to generalize these kind of print functions like this:
+  # def puts_value_with_unit(caption, value, unit)
+  #   puts "#{caption}: #{unit}#{value}"
+  # end
+  # But I don't know How to deal with different units like $ and %
   puts "Retail Price: $#{retail_price}"
 
   total_purchases = toy["purchases"].count
@@ -83,6 +91,8 @@ brands.each_pair.with_index do |(brand, products), i|
   puts brand
   puts_divider
 
+  # Do I need to extract these kind of functions to a external function like
+  # print_number_of_products(brand, products)?
   number_of_products = products.inject(0) { |num, product| num + product["stock"] }
   puts "Number of Products: #{number_of_products}"
 
