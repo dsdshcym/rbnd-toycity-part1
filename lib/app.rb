@@ -29,6 +29,9 @@ puts "|_|                                       "
   # Calculate and print the average price the toy sold for
   # Calculate and print the average discount (% or $) based off the average sales price
 
+def puts_divider
+  puts "********************"
+end
 
 	puts " _                         _     "
 	puts "| |                       | |    "
