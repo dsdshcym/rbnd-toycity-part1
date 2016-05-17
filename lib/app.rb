@@ -47,7 +47,7 @@ products_hash["items"].each_with_index do |toy, i|
   puts "Retail Price: $#{retail_price}"
 
   total_purchases = toy["purchases"].count
-  puts "Total Purchases: $#{total_purchases}"
+  puts "Total Purchases: #{total_purchases}"
 
   total_sum = toy["purchases"].map { |purchase| purchase["price"].to_f }.inject(&:+)
   puts "Total Sales: $#{total_sum}"
